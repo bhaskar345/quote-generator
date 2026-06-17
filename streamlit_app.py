@@ -42,16 +42,21 @@ prompt = st.text_input(
     value="The secret of getting ahead is"
 )
 
-if st.button("Generate ✨", type="primary"):
-    with st.spinner("Generating..."):
-        results = generator(
-            prompt, 
-            max_length=max_length, 
-            do_sample=True, 
-            temperature=temperature,
-            top_p=0.92,
-            repetition_penalty=1.2,
-            no_repeat_ngram_size=3
-        )
-        st.markdown(f"### “ {results['generated_text']} ”")
-
+if st.button("✨ Generate Quote", type="primary"):
+    if prompt.strip() == "":
+        st.warning("⚠️ Please type a prompt first!")
+    else:
+        with st.spinner("🔮 The AI is thinking..."):
+            results = generator(
+                prompt,
+                max_length=max_length, 
+                do_sample=True, 
+                temperature=temperature,
+                top_p=0.92,
+                repetition_penalty=1.2,
+                no_repeat_ngram_size=3
+            )
+            
+            generated_text = results[0]['generated_text']
+                        
+            st.markdown(f"### “ {generated_text} ”")
