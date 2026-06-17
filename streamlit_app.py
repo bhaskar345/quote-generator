@@ -56,7 +56,5 @@ if st.button("✨ Generate Quote", type="primary"):
             )
             
             generated_text = results[0]['generated_text']
-            
-            st.success("📝 Done!")
-            
-            st.markdown(f"### ” {generated_text} ”")
+                        
+            st.markdown(f"### “ {generated_text} ”")
