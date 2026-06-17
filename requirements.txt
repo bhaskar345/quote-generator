@@ -1,0 +1,3 @@
+streamlit
+optimum[onnxruntime]
+transformers
